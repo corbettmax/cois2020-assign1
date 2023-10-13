@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mac81\\source\\repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj": {}
+    "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mac81\\source\\repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj": {
+    "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mac81\\source\\repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj",
+        "projectUniqueName": "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj",
         "projectName": "assign1",
-        "projectPath": "C:\\Users\\mac81\\source\\repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj",
-        "packagesPath": "C:\\Users\\mac81\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mac81\\source\\repos\\cois2020-assign1\\assign1\\assign1\\obj\\",
+        "projectPath": "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj",
+        "packagesPath": "C:\\Users\\Drew\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mac81\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Drew\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
