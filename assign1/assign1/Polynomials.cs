@@ -54,10 +54,10 @@ namespace assign1
         // Prints out the list of polynomials
         public void Print()
         {
-            Console.WriteLine("List of Polynomials:");
+            Console.WriteLine("\nList of Polynomials:");
             for (int i = 0; i < polynomialsList.Count; i++)
             {
-                Console.Write($"Polynomial {i}: ");
+                Console.Write($"Polynomial {i+1}: "); //Adding 1 so that 0 displays as 1, etc.
                 this.Retrieve(i).Print();
             }
 

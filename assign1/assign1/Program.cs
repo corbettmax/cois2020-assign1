@@ -102,48 +102,72 @@ namespace assign1
 
                     //Add two polynomials and insert into S
                     case '2':
-                        Polynomial augend = S.Retrieve(CheckIndices(S));
-                        Polynomial addend = S.Retrieve(CheckIndices(S));
-                        S.Insert(augend + addend);
+                        if (S.Size() > 0) //Checks that S is not empty
+                        {
+                            Polynomial augend = S.Retrieve(CheckIndices(S));
+                            Polynomial addend = S.Retrieve(CheckIndices(S));
+                            S.Insert(augend + addend);
+                        }
+                        else
+                            Console.WriteLine("Error: no polynomials in collection");
                         break;
 
                     //Multiply two polynomials and insert into S
                     case '3':
-                        Polynomial multiplier = S.Retrieve(CheckIndices(S));
-                        Polynomial multiplicand = S.Retrieve(CheckIndices(S));
-                        S.Insert(multiplier * multiplicand);
+                        if (S.Size() > 0) //Checks that S is not empty
+                        { 
+                            Polynomial multiplier = S.Retrieve(CheckIndices(S));
+                            Polynomial multiplicand = S.Retrieve(CheckIndices(S));
+                            S.Insert(multiplier * multiplicand);
+                        }
+                        else
+                            Console.WriteLine("Error: no polynomials in collection");
                         break;
 
                     //Delete polynomial
                     case '4':
-                        S.Delete(CheckIndices(S));
+                        if (S.Size() > 0) //Checks that S is not empty
+                            S.Delete(CheckIndices(S));
+                        else
+                            Console.WriteLine("Error: no polynomials in collection");
                         break;
 
                     //Evaluate polynomial
                     case '5':
-                        Polynomial pEval = S.Retrieve(CheckIndices(S)); //Retrieve chosen polynomial and store as 'p'
-                        double? value = null;
-                        do
+                        if (S.Size() > 0) //Checks that S is not empty
                         {
-                            try
+                            Polynomial pEval = S.Retrieve(CheckIndices(S)); //Retrieve chosen polynomial and store as 'p'
+                            double? value = null;
+                            do
                             {
-                                //Take input
-                                Console.Write("Select a value for evaluation => ");
-                                value = Convert.ToDouble(Console.ReadLine());
-                            }
-                            catch (FormatException)
-                            {
-                                Console.WriteLine("Invalid input.");  //Returns error if input cannot be converted to double type
-                            }
+                                try
+                                {
+                                    //Take input
+                                    Console.Write("Select a value for evaluation => ");
+                                    value = Convert.ToDouble(Console.ReadLine());
+                                }
+                                catch (FormatException)
+                                {
+                                    Console.WriteLine("Invalid input.");  //Returns error if input cannot be converted to double type
+                                }
 
-                        } while (value == null); //Runs until valid value is inputted
-                        pEval.Evaluate((double)value); //Evaluate polynomial 'p' using inputted value
+                            } while (value == null); //Runs until valid value is inputted
+
+                            Console.WriteLine($"Result: {pEval.Evaluate((double)value)}"); //Evaluate polynomial 'p' using inputted value and print result
+                        }
+                        else
+                            Console.WriteLine("Error: no polynomials in collection");
                         break;
 
                     //Clone polynomial and insert clone into S
                     case '6':
-                        Polynomial pClone = S.Retrieve(CheckIndices(S)); //Retrieve chosen polynomial and store as 'p'
-                        S.Insert((Polynomial)pClone.Clone()); //Clone 'p' and insert into collection
+                        if (S.Size() > 0) //Checks that S is not empty
+                        {
+                            Polynomial pClone = S.Retrieve(CheckIndices(S)); //Retrieve chosen polynomial and store as 'p'
+                            S.Insert((Polynomial)pClone.Clone()); //Clone 'p' and insert into collection
+                        }
+                        else
+                            Console.WriteLine("Error: no polynomials in collection");
                         break;
 
                     //Quit
@@ -160,19 +184,29 @@ namespace assign1
         //Checks if inputted value is in range of collection
         static int CheckIndices(Polynomials pclass)
         {
-            int value;
+            int? value = null;
             do
             {
-                //Take input
-                Console.Write("Select a polynomial number => ");
-                value = Convert.ToInt32(Console.ReadLine());
+                do
+                {
+                    try
+                    {
+                        //Take input
+                        Console.Write("Select a polynomial number => ");
+                        value = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Invalid input.");  //Returns error if input cannot be converted to int type
+                    }
+                } while (value == null); //Runs until valid value is inputted
 
                 //Check if in range
-                if (value > 1 && value <= pclass.Size())
-                    return value;
+                if (value > 0 && value <= pclass.Size())
+                    return (int)value-1; //Input element, return index
                 else
-                    throw new IndexOutOfRangeException("Value out of range.");
-            } while (value > 1 && value <= pclass.Size()); //Runs until valid value is inputted
+                    Console.WriteLine("Value out of range.");
+            } while (true); //Runs until valid value is inputted
         }
     }
 }
