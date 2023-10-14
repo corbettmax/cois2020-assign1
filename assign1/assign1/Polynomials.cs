@@ -1,48 +1,65 @@
 ﻿using System;
 
-class Polynomials
+namespace assign1
 {
-    // A collection of polynomials
-    private List<Polynomial> L;
-    
-    
-    // Creates an empty list L of polynomials
-    //WORK IN PROGRESS I HAVE NO IDEA WHAT IM DOING
-    public Polynomials()
-    { 
-        List<Polynomial> list = new List<Polynomial>();
-        L = list;
-        return;
-    
+    public class Polynomials
+    {
+        // A collection of polynomials
+        private List<Polynomial> polynomialsList;
+
+        // Creates an empty list polynomialsList of polynomials
+        public Polynomials()
+        {
+            polynomialsList = new List<Polynomial>();
+        }
+
+        // Retrieves the polynomial stored at position i in polynomialsList
+        public Polynomial Retrieve(int i)
+        {
+            if (i >= 0 && i < polynomialsList.Count)
+            {
+                return polynomialsList[i];
+            }
+            else
+            {
+                throw new IndexOutOfRangeException("Index is out of range.");
+            }
+        }
+
+        // Inserts polynomial p into polynomialsList
+        public void Insert(Polynomial p)
+        {
+            polynomialsList.Add(p);
+        }
+
+        // Deletes the polynomial at index i
+        public void Delete(int i)
+        {
+            if (i >= 0 && i < polynomialsList.Count)
+            {
+                polynomialsList.RemoveAt(i);
+            }
+            else
+            {
+                throw new IndexOutOfRangeException("Index is out of range.");
+            }
+        }
+
+        // Returns the number of polynomials in polynomialsList
+        public int Size()
+        {
+            return polynomialsList.Count;
+        }
+
+        // Prints out the list of polynomials
+        public void Print()
+        {
+            Console.WriteLine("List of Polynomials:");
+            for (int i = 0; i < polynomialsList.Count; i++)
+            {
+                Console.WriteLine($"Polynomial {i}: {polynomialsList[i]}");
+            }
+
+        }
     }
-
-    // Retrieves the polynomial stored at position i in L
-    public Polynomial Retrieve(int i) 
-    { 
-
-
-
-
-    }
-
-
-     // Inserts polynomial p into L
-    public void Insert(Polynomial p)
-    { … }
-
-
-    // Deletes the polynomial at index i
-    public void Delete(int i) 
-    { … }
-    
-        
-    // Returns the number of polynomials in L
-    public int Size()
-    { … }
-
-    // Prints out the list of polynomials
-    public void Print()
-    { … }
-
-
 }
