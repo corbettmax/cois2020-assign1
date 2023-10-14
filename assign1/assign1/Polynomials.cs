@@ -57,7 +57,8 @@ namespace assign1
             Console.WriteLine("List of Polynomials:");
             for (int i = 0; i < polynomialsList.Count; i++)
             {
-                Console.WriteLine($"Polynomial {i}: {polynomialsList[i]}");
+                Console.Write($"Polynomial {i}: ");
+                this.Retrieve(i).Print();
             }
 
         }

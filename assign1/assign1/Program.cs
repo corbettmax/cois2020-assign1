@@ -72,8 +72,8 @@ namespace assign1
                                 }
                             } while (exponent == null); //Runs until valid value is inputted
 
-                            Term tempTerm = new((double)coefficient, (int)exponent);  //Create new term with inputted values
-                            tempPoly.AddTerm(tempTerm);  //Add new term to current polynomial
+                            Term term = new((double)coefficient, (int)exponent);  //Create new term with inputted values
+                            tempPoly.AddTerm(term);  //Add new term to current polynomial
                             Console.WriteLine("Current Polynomial:");
                             tempPoly.Print(); //Display current polynomial
 

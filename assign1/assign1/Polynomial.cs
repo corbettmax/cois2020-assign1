@@ -5,13 +5,13 @@ namespace assign1
     public class Polynomial : ICloneable
     {
         // A reference to the first node of a singly linked list
-        private Node<Term> front;
+        private Node<Term> front { get; set; }
         // Creates the zero polynomial, i.e. 0
         public Polynomial()
         {
             Term T = new Term(0.00, 0);
             Node<Term> head = new Node<Term>(T, null);
-            this.front = new Node<Term>(null, head);
+            front = new Node<Term>(null, head);
         }
         // Inserts term t into the current polynomial in its proper order
         // If a term with the same exponent already exists then the two terms are added together
@@ -22,16 +22,17 @@ namespace assign1
             if (t.Coefficient == 0) return;
 
             //reference to current index
-            Node<Term> current = this.front;
+            Node<Term> current = front;
 
             //loop through the singly linked list
             while (true)
             {
                 //if at the end of the list or if exponent of current postition is now less than that of the Term being added
-                if (current.Next == null | current.Next.Item.Exponent < t.Exponent)
+                if (current.Next == null || current.Next.Item.CompareTo(t) < 0)
                 {
                     //insert term into a new node between current index and next
-                    current.Next = (new Node<Term>(t, current.Next));
+                    Node<Term> temp = current.Next;
+                    current.Next = new Node<Term>(t, temp);
                     return;
                 }
 
@@ -130,7 +131,7 @@ namespace assign1
         // Evaluates the current polynomial at x and returns the result
         public double Evaluate(double x)
         {
-            Node<Term> current = this.front.Next;
+            Node<Term> current = front.Next;
             double total = 0;
             while (current != null)
             {
@@ -148,7 +149,7 @@ namespace assign1
         {
             Queue<int> E = new Queue<int>(); // Stack of exponents
             Stack<double> C = new Stack<double>(); // Stack of coefficients
-            Node<Term> current = this.front;
+            Node<Term> current = front;
             while (current.Next != null)
             {
                 E.Enqueue(current.Next.Item.Exponent);
@@ -171,10 +172,11 @@ namespace assign1
         // Prints the current polynomial
         public void Print()
         {
-            Node<Term> current = this.front;
+            Node<Term> current = front;
             string printed = current.Next.Item.ToString(); // represent the first term without "+" but with "-" if negative
+            current.Next = current.Next.Next;
 
-            while (current.Next == null)
+            while (current.Next != null)
             {
                 if (current.Next.Item.Coefficient < 0)
                 {
@@ -185,6 +187,8 @@ namespace assign1
                 {
                     printed += "+" + current.Next.Item.ToString();
                 }
+
+                current = current.Next;
 
             }
 
