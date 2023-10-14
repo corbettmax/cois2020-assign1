@@ -1,9 +1,8 @@
-﻿using System;
-class Program
+﻿class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Polynomials S = new Polynomials(); // Collection of polynomials
+        Polynomials S = new(); // Collection of polynomials
 
         char input = '0'; //Used for selecting options
 
@@ -26,7 +25,7 @@ class Program
 
             try
             {
-                input = Convert.ToChar(Console.ReadLine());
+                input = Convert.ToChar(Console.ReadLine()!);
             }
             catch (FormatException) { } //Skips to default switch case if input is not valid
 
@@ -34,8 +33,8 @@ class Program
             {
                 //Create polynomial
                 case '1':
-                    Polynomial tempPoly = new Polynomial(); //Create empty new polynomial
-                    char? yesNo = null; //Used to control do/while loop
+                    Polynomial tempPoly = new(); //Create empty new polynomial
+                    char? yesNo; //Used to control do/while loop
 
                     do
                     {
@@ -85,7 +84,7 @@ class Program
                             {
                                 //Take input
                                 Console.Write("Add another term? Y/N => ");
-                                yesNo = Convert.ToChar(Console.ReadLine());
+                                yesNo = Convert.ToChar(Console.ReadLine()!);
                             }
                             catch (FormatException)
                             {
@@ -120,7 +119,7 @@ class Program
 
                 //Evaluate polynomial
                 case '5':
-                    Polynomial p = S.Retrieve(CheckIndices(S)); //Retrieve chosen polynomial and store as 'p'
+                    Polynomial pEval = S.Retrieve(CheckIndices(S)); //Retrieve chosen polynomial and store as 'p'
                     double? value = null;
                     do
                     {
@@ -136,13 +135,13 @@ class Program
                         }
 
                     } while (value == null); //Runs until valid value is inputted
-                    p.Evaluate(value); //Evaluate polynomial 'p' using inputted value
+                    pEval.Evaluate((double)value); //Evaluate polynomial 'p' using inputted value
                     break;
 
                 //Clone polynomial and insert clone into S
                 case '6':
-                    Polynomial p = S.Retrieve(CheckIndices(S)); //Retrieve chosen polynomial and store as 'p'
-                    S.Insert(p.Clone()); //Clone 'p' and insert into collection
+                    Polynomial pClone = S.Retrieve(CheckIndices(S)); //Retrieve chosen polynomial and store as 'p'
+                    S.Insert(pClone.Clone()); //Clone 'p' and insert into collection
                     break;
 
                 //Quit

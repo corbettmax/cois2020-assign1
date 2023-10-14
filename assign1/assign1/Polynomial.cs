@@ -8,8 +8,8 @@ public class Polynomial : ICloneable
     // Creates the zero polynomial, i.e. 0
     public Polynomial()
     {
-        Term T = new Term(0.00, 0)
-        Node<Term> head = new Node(T, null)
+        Term T = new Term(0.00, 0);
+        Node<Term> head = new Node(T, null);
         this.front = new Node<Term>(null,head);
     }
     // Inserts term t into the current polynomial in its proper order
@@ -30,7 +30,7 @@ public class Polynomial : ICloneable
             if(current.getNext()==null | current.getNext().getItem().getExponent() < t.getExponent())
             {
                 //insert term into a new node between current index and next
-                current.setNext(new Node<Term>(t, current.getNext()))
+                current.setNext(new Node<Term>(t, current.getNext()));
                 return;
             }
             
@@ -67,8 +67,7 @@ public class Polynomial : ICloneable
             //update index
             current = current.getNext();
             
-        };
-        return;
+        }
     }
 
     // Adds polynomials p and q to yield a new polynomial
@@ -146,8 +145,8 @@ public class Polynomial : ICloneable
     // For example, 4x^3 – 3x + 9 is cloned as 9x^3 – 3x + 4
     public Object Clone()
     {
-        Queue<int> E = new Queue<int>(); ; // Stack of exponents
-        Stack<int> C = new Stack<int>() ; // Stack of coefficients
+        Queue<int> E = new Queue<int>(); // Stack of exponents
+        Stack<int> C = new Stack<int>(); // Stack of coefficients
         Node<Term> current = this.getFront();
         while (current.getNext() != null)
         {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj": {}
+    "C:\\Users\\Drew\\Source\\Repos\\cois2020-assignment\\assign1\\assign1\\assign1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj": {
+    "C:\\Users\\Drew\\Source\\Repos\\cois2020-assignment\\assign1\\assign1\\assign1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj",
+        "projectUniqueName": "C:\\Users\\Drew\\Source\\Repos\\cois2020-assignment\\assign1\\assign1\\assign1.csproj",
         "projectName": "assign1",
-        "projectPath": "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\assign1.csproj",
+        "projectPath": "C:\\Users\\Drew\\Source\\Repos\\cois2020-assignment\\assign1\\assign1\\assign1.csproj",
         "packagesPath": "C:\\Users\\Drew\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Drew\\Source\\Repos\\cois2020-assign1\\assign1\\assign1\\obj\\",
+        "outputPath": "C:\\Users\\Drew\\Source\\Repos\\cois2020-assignment\\assign1\\assign1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Drew\\AppData\\Roaming\\NuGet\\NuGet.Config",
