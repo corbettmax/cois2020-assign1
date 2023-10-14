@@ -1,0 +1,14 @@
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\bin\Debug\net6.0\assign1.exe
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\bin\Debug\net6.0\assign1.deps.json
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\bin\Debug\net6.0\assign1.runtimeconfig.json
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\bin\Debug\net6.0\assign1.dll
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\bin\Debug\net6.0\assign1.pdb
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\obj\Debug\net6.0\assign1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\obj\Debug\net6.0\assign1.AssemblyInfoInputs.cache
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\obj\Debug\net6.0\assign1.AssemblyInfo.cs
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\obj\Debug\net6.0\assign1.csproj.CoreCompileInputs.cache
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\obj\Debug\net6.0\assign1.dll
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\obj\Debug\net6.0\refint\assign1.dll
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\obj\Debug\net6.0\assign1.pdb
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\obj\Debug\net6.0\assign1.genruntimeconfig.cache
+C:\Users\Drew\source\repos\cois2020-assignment\assign1\assign1\obj\Debug\net6.0\ref\assign1.dll

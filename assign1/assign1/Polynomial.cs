@@ -19,7 +19,7 @@ namespace assign1
         public void AddTerm(Term t)
         {
             //if term being added is 0
-            if (t.getCoefficient() == 0) return;
+            if (t.Coefficient == 0) return;
 
             //reference to current index
             Node<Term> current = this.front;
@@ -28,30 +28,30 @@ namespace assign1
             while (true)
             {
                 //if at the end of the list or if exponent of current postition is now less than that of the Term being added
-                if (current.getNext() == null | current.getNext().getItem().getExponent() < t.getExponent())
+                if (current.Next == null | current.Next.Item.Exponent < t.Exponent)
                 {
                     //insert term into a new node between current index and next
-                    current.setNext(new Node<Term>(t, current.getNext()));
+                    current.Next = (new Node<Term>(t, current.Next));
                     return;
                 }
 
                 // If a term with the same exponent already exists then the two terms are added together
-                else if (current.getNext().getItem().getExponent() == t.getExponent())
+                else if (current.Next.Item.Exponent == t.Exponent)
                 {
 
                     // If the two terms cancel out then no new term is created
-                    if (current.getNext().getItem().getCoefficient() + t.getCoefficient() == 0)
+                    if (current.Next.Item.Coefficient + t.Coefficient == 0)
                     {
                         try
                         {
                             //remove the Term that gets cancelled out by moving the node's reference to next.next
-                            current.setNext(current.getNext().getNext());
+                            current.Next = current.Next.Next;
                         }
                         catch
                         {
                             //catch exception from next.next being null, refer to null instead
                             //NOTE: try/catch statement may not be necessary
-                            current.setNext(null);
+                            current.Next = null;
                         }
 
                     }
@@ -59,14 +59,14 @@ namespace assign1
                     else
                     {
                         //reset next's item to be a new term with the updated coefficient but same exponent
-                        current.getNext().setItem(new Term(current.getNext().getItem().getCoefficient() + t.getCoefficient(), t.getExponent()));
+                        current.Next.Item = new Term(current.Next.Item.Coefficient + t.Coefficient, t.Exponent);
                     }
 
                     return;
                 }
 
                 //update index
-                current = current.getNext();
+                current = current.Next;
 
             }
         }
@@ -75,24 +75,24 @@ namespace assign1
         public static Polynomial operator +(Polynomial p, Polynomial q)
         {
             //references to the respective fronts of the polynomials to add
-            Node<Term> pcurrent = p.getFront();
-            Node<Term> qcurrent = q.getFront();
+            Node<Term> pcurrent = p.front;
+            Node<Term> qcurrent = q.front;
 
             //new polynomial to return
             Polynomial result = new();
 
             //loop through polynomial p and add each term to result
-            while (pcurrent.getNext() != null)
+            while (pcurrent.Next != null)
             {
-                result.AddTerm(pcurrent.getNext().getItem());
-                pcurrent = pcurrent.getNext();
+                result.AddTerm(pcurrent.Next.Item);
+                pcurrent = pcurrent.Next;
             }
 
             //loop through polynomial q and add each term to result
-            while (qcurrent.getNext() != null)
+            while (qcurrent.Next != null)
             {
-                result.AddTerm(qcurrent.getNext().getItem());
-                qcurrent = qcurrent.getNext();
+                result.AddTerm(qcurrent.Next.Item);
+                qcurrent = qcurrent.Next;
             }
 
             //return the resulting
@@ -106,23 +106,23 @@ namespace assign1
         public static Polynomial operator *(Polynomial p, Polynomial q)
         {
             //references to the respective fronts of the polynomials to add
-            Node<Term> pcurrent = p.getFront();
-            Node<Term> qcurrent = q.getFront();
+            Node<Term> pcurrent = p.front;
+            Node<Term> qcurrent = q.front;
 
             //new polynomial to store result
-            Polynomial result = new Polynomial();
+            Polynomial result = new();
 
             //loop through polynomial p and add each term to result
-            while (pcurrent.getNext() != null)
+            while (pcurrent.Next != null)
             {
-                while (qcurrent.getNext() != null)
+                while (qcurrent.Next != null)
                 {
-                    result.AddTerm(new Term(pcurrent.getNext().getItem().getCoefficient() *
-                        qcurrent.getNext().getItem().getCoefficient(), pcurrent.getNext().getItem().getExponent()
-                        + qcurrent.getNext().getItem().getCoefficient()));
-                    qcurrent = qcurrent.getNext();
+                    result.AddTerm(new Term(pcurrent.Next.Item.Coefficient *
+                        qcurrent.Next.Item.Coefficient, pcurrent.Next.Item.Exponent
+                        + qcurrent.Next.Item.Exponent));
+                    qcurrent = qcurrent.Next;
                 }
-                pcurrent = pcurrent.getNext();
+                pcurrent = pcurrent.Next;
             }
             return result;
         }
@@ -130,12 +130,12 @@ namespace assign1
         // Evaluates the current polynomial at x and returns the result
         public double Evaluate(double x)
         {
-            Node<Term> current = this.getFront().getNext();
+            Node<Term> current = this.front.Next;
             double total = 0;
             while (current != null)
             {
-                total += Math.Pow(x, current.getItem().getExponent()) * current.getItem().getCoefficient();
-                current = current.getNext();
+                total += Math.Pow(x, current.Item.Exponent) * current.Item.Coefficient;
+                current = current.Next;
             };
 
             return total;
@@ -147,13 +147,13 @@ namespace assign1
         public Object Clone()
         {
             Queue<int> E = new Queue<int>(); // Stack of exponents
-            Stack<int> C = new Stack<int>(); // Stack of coefficients
-            Node<Term> current = this.getFront();
-            while (current.getNext() != null)
+            Stack<double> C = new Stack<double>(); // Stack of coefficients
+            Node<Term> current = this.front;
+            while (current.Next != null)
             {
-                E.Enqueue(current.getNext().getItem().getExponent());
-                C.Push(current.getNext().getItem().getCoefficient());
-                current = current.getNext();
+                E.Enqueue(current.Next.Item.Exponent);
+                C.Push(current.Next.Item.Coefficient);
+                current = current.Next;
             }
 
             Polynomial cloned = new();
@@ -171,19 +171,19 @@ namespace assign1
         // Prints the current polynomial
         public void Print()
         {
-            Node<Term> current = this.getFront();
-            string printed = current.getNext().getItem().ToString(); // represent the first term without "+" but with "-" if negative
+            Node<Term> current = this.front;
+            string printed = current.Next.Item.ToString(); // represent the first term without "+" but with "-" if negative
 
-            while (current.getNext() != null)
+            while (current.Next == null)
             {
-                if (current.getNext().getItem().getCoefficient() < 0)
+                if (current.Next.Item.Coefficient < 0)
                 {
-                    printed += current.getNext().getItem().ToString();
+                    printed += current.Next.Item.ToString();
                 }
 
                 else
                 {
-                    printed += "+" + current.getNext().getItem().ToString();
+                    printed += "+" + current.Next.Item.ToString();
                 }
 
             }

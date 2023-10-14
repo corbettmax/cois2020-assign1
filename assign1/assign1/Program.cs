@@ -12,7 +12,6 @@ namespace assign1
             do
             {
                 //Print list of polynomials
-                Console.WriteLine("\nCurrent Polynomials:");
                 S.Print();
 
                 //Select option
@@ -144,7 +143,7 @@ namespace assign1
                     //Clone polynomial and insert clone into S
                     case '6':
                         Polynomial pClone = S.Retrieve(CheckIndices(S)); //Retrieve chosen polynomial and store as 'p'
-                        S.Insert(pClone.Clone()); //Clone 'p' and insert into collection
+                        S.Insert((Polynomial)pClone.Clone()); //Clone 'p' and insert into collection
                         break;
 
                     //Quit
