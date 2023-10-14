@@ -174,7 +174,7 @@ namespace assign1
         {
             Node<Term> current = front;
             string printed = current.Next.Item.ToString(); // represent the first term without "+" but with "-" if negative
-            current.Next = current.Next.Next;
+            current = current.Next;
 
             while (current.Next != null)
             {
@@ -190,7 +190,7 @@ namespace assign1
 
                 current = current.Next;
 
-            }
+            };
 
             Console.WriteLine(printed);
 

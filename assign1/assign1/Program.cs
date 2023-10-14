@@ -16,7 +16,7 @@ namespace assign1
 
                 //Select option
                 Console.WriteLine("\nSelect Option");
-                Console.WriteLine("1: Create Polynomial");
+                Console.WriteLine("1: Create New Polynomial");
                 Console.WriteLine("2: Add Polynomials");
                 Console.WriteLine("3: Multiply Polynomials");
                 Console.WriteLine("4: Delete Polynomial");
@@ -95,7 +95,7 @@ namespace assign1
                             } while (yesNo == null); //Runs until valid value is inputted
 
 
-                        } while (yesNo == 'Y'); //Loops until 'N' is chosen
+                        } while (yesNo == 'Y' || yesNo == 'y'); //Loops until 'N' is chosen
 
                         S.Insert(tempPoly); //Insert finalized polynomial into list
                         break;
