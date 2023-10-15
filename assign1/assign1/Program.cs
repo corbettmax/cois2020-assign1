@@ -1,4 +1,11 @@
-﻿using System;
+﻿//COIS-2020H Assignment 1
+//By:
+//Max Corbett (0787791)
+//Nick Fraga (0765518)
+//Drew Goettsche (0767601)
+
+
+using System;
 namespace assign1
 {
     class Program
