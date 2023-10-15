@@ -11,8 +11,11 @@ namespace assign1
 
             do
             {
-                //Print list of polynomials
-                S.Print();
+                if (S.Size() > 0) //Checks that S is not empty
+                {
+                    //Print list of polynomials
+                    S.Print();
+                }
 
                 //Select option
                 Console.WriteLine("\nSelect Option");
@@ -69,6 +72,12 @@ namespace assign1
                                 catch (FormatException)
                                 {
                                     Console.WriteLine("Invalid input.");  //Returns error if input cannot be converted to int type
+                                }
+                                // Check if the exponent is within the range [0, 20]
+                                if (exponent < 0 || exponent > 20)
+                                {
+                                    Console.WriteLine("Exponent must be between 0 and 20.");
+                                    exponent = null;
                                 }
                             } while (exponent == null); //Runs until valid value is inputted
 

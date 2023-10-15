@@ -63,19 +63,20 @@ namespace assign1
         }
 
         // Returns a string representation of the current term
+        // The absolute values are for formatting, allowing for a space between the printed number and its minus sign
         public override string ToString()
         {
             if (exponent == 0)
             {
-                return coefficient.ToString();
+                return Math.Abs(coefficient).ToString();
             }
             else if (exponent == 1)
             {
-                return $"{coefficient}x";
+                return $"{Math.Abs(coefficient)}x";
             }
             else
             {
-                return $"{coefficient}x^{exponent}";
+                return $"{Math.Abs(coefficient)}x^{exponent}";
             }
         }
     }

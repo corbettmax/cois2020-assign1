@@ -98,7 +98,6 @@ namespace assign1
 
             //return the resulting
             return result;
-
         }
 
 
@@ -173,27 +172,36 @@ namespace assign1
         public void Print()
         {
             Node<Term> current = front;
-            string printed = current.Next.Item.ToString(); // represent the first term without "+" but with "-" if negative
+            string printed;
+
+            //Represent the first term without "+" but with "-" if negative
+            if (current.Next.Item.Coefficient < 0)
+            {
+                printed = "-" + current.Next.Item.ToString(); 
+            }
+            else
+                printed = current.Next.Item.ToString();
+
             current = current.Next;
 
             while (current.Next != null)
             {
+                //If negative coefficient, use minus sign instead of plus
                 if (current.Next.Item.Coefficient < 0)
                 {
-                    printed += current.Next.Item.ToString();
+                    printed += " - " + current.Next.Item.ToString();
                 }
-
                 else
                 {
-                    printed += "+" + current.Next.Item.ToString();
+                    printed += " + " + current.Next.Item.ToString();
                 }
 
                 current = current.Next;
 
             };
 
+            //Display the finalized polynomial
             Console.WriteLine(printed);
-
         }
 
     }

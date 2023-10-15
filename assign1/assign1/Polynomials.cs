@@ -57,7 +57,7 @@ namespace assign1
             Console.WriteLine("\nList of Polynomials:");
             for (int i = 0; i < polynomialsList.Count; i++)
             {
-                Console.Write($"Polynomial {i+1}: "); //Adding 1 so that 0 displays as 1, etc.
+                Console.Write($"Polynomial {i+1}: "); //Adding 1 so that the 0th polynomial displays as 1st, etc.
                 this.Retrieve(i).Print();
             }
 
