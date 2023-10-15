@@ -75,7 +75,7 @@ namespace assign1
 
             else if (exponent == 1)
             {
-                if(coefficient == 1)
+                if(coefficient == 1 || coefficient == -1)
                 {
                     return "x";
                 }
@@ -86,7 +86,7 @@ namespace assign1
 
             else
             {
-                if(coefficient == 1)
+                if(coefficient == 1 || coefficient == -1)
                 {
                     return $"x^{exponent}";
                 }
