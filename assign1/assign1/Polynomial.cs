@@ -10,7 +10,7 @@ namespace assign1
         // Creates the zero polynomial, i.e. 0
         public Polynomial()
         {
-            front = new Node<Term>(null, null   );
+            front = new Node<Term>(null, null);
         }
         // Inserts term t into the current polynomial in its proper order
         // If a term with the same exponent already exists then the two terms are added together

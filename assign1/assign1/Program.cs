@@ -118,7 +118,7 @@ namespace assign1
                             S.Insert(augend + addend);
                         }
                         else
-                            Console.WriteLine("Error: no polynomials in collection");
+                            Console.WriteLine("Error: no polynomials in collection.");
                         break;
 
                     //Multiply two polynomials and insert into S
@@ -130,7 +130,7 @@ namespace assign1
                             S.Insert(multiplier * multiplicand);
                         }
                         else
-                            Console.WriteLine("Error: no polynomials in collection");
+                            Console.WriteLine("Error: no polynomials in collection.");
                         break;
 
                     //Delete polynomial
@@ -138,7 +138,7 @@ namespace assign1
                         if (S.Size() > 0) //Checks that S is not empty
                             S.Delete(CheckIndices(S));
                         else
-                            Console.WriteLine("Error: no polynomials in collection");
+                            Console.WriteLine("Error: no polynomials in collection.");
                         break;
 
                     //Evaluate polynomial
@@ -165,7 +165,7 @@ namespace assign1
                             Console.WriteLine($"Result: {pEval.Evaluate((double)value)}"); //Evaluate polynomial 'p' using inputted value and print result
                         }
                         else
-                            Console.WriteLine("Error: no polynomials in collection");
+                            Console.WriteLine("Error: no polynomials in collection.");
                         break;
 
                     //Clone polynomial and insert clone into S
@@ -176,7 +176,7 @@ namespace assign1
                             S.Insert((Polynomial)pClone.Clone()); //Clone 'p' and insert into collection
                         }
                         else
-                            Console.WriteLine("Error: no polynomials in collection");
+                            Console.WriteLine("Error: no polynomials in collection.");
                         break;
 
                     //Quit
