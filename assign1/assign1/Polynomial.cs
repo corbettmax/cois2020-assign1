@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace assign1
 {
@@ -112,17 +113,19 @@ namespace assign1
             //new polynomial to store result
             Polynomial result = new();
 
-            //loop through polynomial p and add each term to result
+            //Loop through each term in polynomial p
             while (pcurrent.Next != null)
             {
+                //Loop through each term polynomial q
                 while (qcurrent.Next != null)
                 {
                     result.AddTerm(new Term(pcurrent.Next.Item.Coefficient *
                         qcurrent.Next.Item.Coefficient, pcurrent.Next.Item.Exponent
                         + qcurrent.Next.Item.Exponent));
-                    qcurrent = qcurrent.Next;
+                    qcurrent = qcurrent.Next; //Move to next term in q
                 }
-                pcurrent = pcurrent.Next;
+                qcurrent = q.front; //Set current term in q back to the first
+                pcurrent = pcurrent.Next; //Move to next term in p
             }
             return result;
         }
