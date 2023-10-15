@@ -10,9 +10,7 @@ namespace assign1
         // Creates the zero polynomial, i.e. 0
         public Polynomial()
         {
-            Term T = new Term(0.00, 0);
-            Node<Term> head = new Node<Term>(T, null);
-            front = new Node<Term>(null, head);
+            front = new Node<Term>(null, null   );
         }
         // Inserts term t into the current polynomial in its proper order
         // If a term with the same exponent already exists then the two terms are added together
@@ -109,9 +107,17 @@ namespace assign1
             //references to the respective fronts of the polynomials to add
             Node<Term> pcurrent = p.front;
             Node<Term> qcurrent = q.front;
-
+            
             //new polynomial to store result
             Polynomial result = new();
+
+
+            //if either polynomial is == 0
+            if(pcurrent.Next == null || qcurrent.Next == null)
+            {
+                 return result;
+            }
+
 
             //Loop through each term in polynomial p
             while (pcurrent.Next != null)
@@ -133,17 +139,31 @@ namespace assign1
         // Evaluates the current polynomial at x and returns the result
         public double Evaluate(double x)
         {
+            
+            //if the polynomial is empty that means it is equal to 0
+            if(front.Next == null)
+            {
+                return 0;
+            }
+            
+            
             Node<Term> current = front.Next;
             double total = 0;
+            //loop through each term in the polynomial and add each evalution to the total
             while (current != null)
             {
+                //evaluate the term at x and return the total
                 total += Math.Pow(x, current.Item.Exponent) * current.Item.Coefficient;
+                //increment the index
                 current = current.Next;
             };
 
+            //return the total of the evalution
             return total;
 
         }
+
+
         // Creates and returns a clone of the current polynomial except that the exponents
         // of the current polynomial are assigned to the coefficients of the clone in reverse order
         // For example, 4x^3 – 3x + 9 is cloned as 9x^3 – 3x + 4
@@ -174,6 +194,13 @@ namespace assign1
         // Prints the current polynomial
         public void Print()
         {
+            //if the polynomial is empty that means it's equal to 0
+            if(front.Next == null)
+            {
+                Console.WriteLine("0");
+                return;
+            }
+            
             Node<Term> current = front;
             string printed;
 

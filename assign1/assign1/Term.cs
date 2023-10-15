@@ -66,16 +66,30 @@ namespace assign1
         // The absolute values are for formatting, allowing for a space between the printed number and its minus sign
         public override string ToString()
         {
+            //only print coeffiecient if exponent == 0 because x^0 = 1
             if (exponent == 0)
             {
                 return Math.Abs(coefficient).ToString();
             }
+            
+
             else if (exponent == 1)
             {
+                if(coefficient == 1)
+                {
+                    return "x";
+                }
+
                 return $"{Math.Abs(coefficient)}x";
             }
+
+
             else
             {
+                if(coefficient == 1)
+                {
+                    return $"x^{exponent}";
+                }
                 return $"{Math.Abs(coefficient)}x^{exponent}";
             }
         }
