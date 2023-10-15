@@ -7,10 +7,12 @@ namespace assign1
         {
             Polynomials S = new(); // Collection of polynomials
 
-            char input = '0'; //Used for selecting options
+            char input; //Used for selecting options
 
             do
             {
+                input = '0'; //Reset input value
+
                 if (S.Size() > 0) //Checks that S is not empty
                 {
                     //Print list of polynomials
